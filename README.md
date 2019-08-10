@@ -1,4 +1,4 @@
-## Voi_scooter Hack
+# Voi Scooter Hack
 
 Recently we've got one of the Voi Scooter Voiager 1.
 Usually you have to unlock them with your smartphone and the right app, so we tried to bypass this.
@@ -14,37 +14,37 @@ First we removed the black controll box, unscrewed it and removed the interior. 
 
 The cable colors are: 
 
-RED    -> +34VDC
-BLACK  -> GND
-BLUE   -> ENABLE
-YELLOW -> TX (3.3V !!)
-GREEN  -> RX
+RED    -> +34VDC  
+BLACK  -> GND  
+BLUE   -> ENABLE  
+YELLOW -> TX (3.3V !!)  
+GREEN  -> RX  
 
 
 We added a buck converter to reduce the Voltage from 34V to 3.3V. 
 This is powering an Arduino Pro Mini and a HC-06 bluetooth module. 
 
-GREEN  -> Arduino D10
-YELLOW -> Arduino D11
-BLUE   -> Arduino D12
+GREEN  -> Arduino D10  
+YELLOW -> Arduino D11  
+BLUE   -> Arduino D12  
 
 The bluetooth module is connected as follows: 
 
-BT TX -> Arduino D8
-BT RX -> Arduino D9
+BT TX -> Arduino D8  
+BT RX -> Arduino D9  
 
-On Pin D3 we attached the allready existing Buzzer. 
+On Pin D3 we attached the already existing Buzzer. 
 
 ![IMG_20190810_130433](https://user-images.githubusercontent.com/53583708/62821441-26523400-bb75-11e9-964a-fd15916d9900.jpg)
 
 ![IMG_20190810_130425](https://user-images.githubusercontent.com/53583708/62821484-f22b4300-bb75-11e9-830d-130dfea5b490.jpg)
 
-I've added an IMU for shaking recognition as anti theft, but it is not implemented yet. 
+We've added an IMU for shaking recognition as anti theft, but it is not implemented yet. 
 
-The rest of the magic is happening in the code.
-Ask if you've got questions. 
+The rest of the magic is happening in the code.  
+Ask if you've got questions.   
 
-#Future improvements
+##Future improvements
 
 - IMU implementation
 - Powersafing mode for bluetooth
