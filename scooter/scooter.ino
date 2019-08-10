@@ -28,7 +28,9 @@ byte stop_0[] = {0x60, 0x03, 0x01, 0xE2, 0x00, 0x01, 0x01, 0xDD, 0xB0};
 byte stop_1[] = {0x60, 0x03, 0x01, 0xE1, 0x00, 0x01, 0xF0, 0x1D, 0x71};
 byte stop_2[] = {0x60, 0x03, 0x01, 0xE2, 0x00, 0x01, 0x00, 0x1D, 0x71};
 
-bool state = 0;
+bool state    = 0;
+bool EnState  = 1;
+
 //float param = {0, 0, 0};
 
 void setup() {
@@ -59,10 +61,9 @@ void loop() {
     String rec = bt.readString();
     rec.trim();
     
-    if(rec.equals("Rollerstart") && !state){
+    if(rec.equals("Start") && !state){
       state = 1;
       
-      //send start bytes
       Serial.println("START!");
       mc.write(start_1, 9);
       bt.println("started!");
@@ -76,10 +77,9 @@ void loop() {
       delay(100);
       digitalWrite(BUZ, LOW);
       
-    }else if(rec.equals("Rollerstop") && state){
+    }else if(rec.equals("Stop") && state){
       state = 0;
       
-      //send stop bytes
       Serial.println("STOP!");
       mc.write(stop_1, 9);
       bt.println("stoped!");
@@ -93,6 +93,18 @@ void loop() {
       delay(400);
       digitalWrite(BUZ, LOW);
       
+    }else if(rec.equals("Enable") && !state){
+      EnState = 1;
+      
+      Serial.println("ENABLE!");
+      digitalWrite(EN, HIGH);
+      bt.println("enabled!");
+    }else if(rec.equals("Disable") && state){
+      EnState = 0;
+      
+      Serial.println("DISABLE!");
+      digitalWrite(EN, LOW);
+      bt.println("disabled!");
     }
   }
 
