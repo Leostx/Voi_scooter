@@ -95,13 +95,13 @@ void loop() {
       delay(400);
       digitalWrite(BUZ, LOW);
       
-    }else if(rec.equals("Enable") && !state){
+    }else if(rec.equals("Enable") && !EnState){
       EnState = 1;
       
       Serial.println("ENABLE!");
       digitalWrite(EN, HIGH);
       bt.println("enabled!");
-    }else if(rec.equals("Disable") && state){
+    }else if(rec.equals("Disable") && EnState){
       EnState = 0;
       
       Serial.println("DISABLE!");
