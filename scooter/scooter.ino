@@ -4,9 +4,11 @@
 
 #define BUZ   3
 
+//Bluetooth serial
 #define BT_RX 8
 #define BT_TX 9
 
+//Motorcontroller pins
 #define MC_RX 10
 #define MC_TX 11
 #define EN    12
@@ -82,7 +84,7 @@ void loop() {
       
       Serial.println("STOP!");
       mc.write(stop_1, 9);
-      bt.println("stoped!");
+      bt.println("stopped!");
 
       //make sound
       digitalWrite(BUZ, HIGH);
