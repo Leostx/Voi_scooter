@@ -11,7 +11,7 @@
 //Motorcontroller pins
 #define MC_RX 10
 #define MC_TX 11
-#define EN    12
+#define EN    12    //dlock pin. if high scooter is up and running. if low, charging mode, motorcontroller deactivated
 
 #define HOLD  0.01
 
