@@ -62,6 +62,7 @@ void loop() {
     if(rec.equals("Rollerstart") && !state){
       state = 1;
       
+      //send start bytes
       Serial.println("START!");
       mc.write(start_1, 9);
       bt.println("started!");
@@ -78,6 +79,7 @@ void loop() {
     }else if(rec.equals("Rollerstop") && state){
       state = 0;
       
+      //send stop bytes
       Serial.println("STOP!");
       mc.write(stop_1, 9);
       bt.println("stoped!");
